@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <!-- for IE -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- first mobile meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="wasf" />
+        <title>لخَّصلي</title>
+        <link rel="stylesheet" href="css/Tajawal.css" />
+        <link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/bootstrap.css" />
+        <link rel="stylesheet" href="css/styles.css" />
+
+        <!--[if lt IE 9]>
+          <script src="js/html5shiv.min.js"></script>
+          <script src="js/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+
+    <body>
+
+        <div class="container">
+            
+            <h1>لخَّصلي</h1>
+            <div style="clear: both"></div>
+            
+            <form action="" method="">
+                <fieldset>
+                    
+                    <legend>
+                            <i class="fas fa-book"></i>
+                    </legend>
+                    
+                    
+                    <textarea id="text"
+                              placeholder="أدخل النص المراد تلخيصه..."
+                              rows="12"
+                              autofocus></textarea>
+
+                    <br />
+                    <button type="button" id="summarize">
+                        <i class="fas fa-edit"></i>
+                        تلخيص
+                    </button>
+                    <br />
+
+                    <!--       for Displaying Summarized text            -->
+                    <label id="result"></label>
+
+                </fieldset>
+            </form>
+        </div>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="js/jquery-1.12.4.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+
+        <script>
+
+            $('#summarize').on('click', function (event) {
+
+                event.preventDefault();
+
+                $.ajax({
+                    method: 'POST',
+                    data: {text: $('#text').val()},
+                    url: 'localhost:5000/summarize',
+                    success: function (result) {
+                        console.log(result.summary);
+                        $('#result').text(result.summary);
+                    }
+
+                });
+
+            });
+
+        </script>
+    </body>
+</html>

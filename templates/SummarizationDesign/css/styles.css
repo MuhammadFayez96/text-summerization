@@ -1,0 +1,67 @@
+/* Main Rules */
+body{
+    font-size: 17px;
+    font-weight: lighter;
+    font-family: 'Tajawal', sans-serif;
+    background: rgb(18, 115, 45, 1.0);
+    direction: rtl;
+}
+
+.fa-book{
+    font-size: 300%;
+    margin: 14px 45px;
+    text-shadow: -4px 4px 4px #030;
+    color: #FFF;
+}
+
+h1{
+    color: #FFF;
+    font-size: 500%;
+    font-weight: 900;
+    text-align: center;
+    margin: 60px auto -30px auto;
+    text-shadow: -4px 4px 4px #030;
+
+}
+
+form{
+    margin-bottom: 50px
+}
+
+fieldset {
+    background: rgba(24, 204, 106, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: -3px 6px 20px #030;
+    border: 3px solid #FFF;
+
+}
+
+legend{
+    border: 3px solid #FFF;
+    height: 96px;
+    background: #060;
+    border-radius: 10px;
+    width: 15%
+}
+
+textarea{
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+    font-size: 18px
+}
+
+button{
+    display: block;
+    margin: 0 auto;
+    padding: 5px 30px;
+    font-size: 25px;
+    background-color: #FFF;
+    border: 3px solid #070;
+    border-radius: 7px;
+    color: #080;
+    font-weight: 600;
+}

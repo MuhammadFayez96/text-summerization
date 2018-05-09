@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <!-- for IE -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- first mobile meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="wasf" />
+        <title>لخَّصلي</title>
+        <link rel="stylesheet" href="../static/css/Tajawal.css" />
+        <link rel="stylesheet" href="../static/css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="../static/css/bootstrap.css" />
+        <link rel="stylesheet" href="../static/css/styles.css" />
+
+        <!--[if lt IE 9]>
+          <script src="../static/js/html5shiv.min.js"></script>
+          <script src="../static/js/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+
+    <body>
+
+        <div class="container">
+            
+            <h1>لخَّصلي</h1>
+            <div style="clear: both"></div>
+            
+            <form action="http://localhost:5000/summarize" method="POST" onsubmit="return false">
+                <fieldset>
+                    
+                    <legend>
+                            <i class="fas fa-book"></i>
+                    </legend>
+                    
+                    
+                    <textarea id="text"
+                              name="text"
+                              placeholder="أدخل النص المراد تلخيصه..."
+                              rows="12"
+                              autofocus></textarea>
+
+                    <br />
+                    <button type="button" id="summarize">
+                        <i class="fas fa-edit"></i>
+                        تلخيص
+                    </button>
+                    <br />
+
+                    <!--       for Displaying Summarized text            -->
+                    <label id="result"></label>
+
+                </fieldset>
+            </form>
+        </div>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="../static/js/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="../static/js/bootstrap.min.js"></script>
+
+        <script>
+
+            $('#summarize').on('click', function (event) {
+
+                event.preventDefault();
+
+                $.ajax({
+                    method: 'POST',
+                    url: 'summarize',
+                    data: $('form').serialize(),
+                    success: function (result) {
+                        $('#result').text(result.summary);
+                    }
+
+                });
+            });
+
+        </script>
+    </body>
+</html>
